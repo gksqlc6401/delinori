@@ -1,19 +1,27 @@
 package com.noriteo.delinori.common.config;
 
+import com.noriteo.delinori.board.config.BoardRootConfig;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+
 
 @Configuration
+@Import(BoardRootConfig.class)
 @EnableTransactionManagement
+//@ComponentScan(basePackages = {"com.noriteo.delinori.board.service"})
+//@MapperScan(basePackages = "com.noriteo.delinori.board.mapper")
 public class RootConfig {
 
     @Bean //mybatis 연결
@@ -28,16 +36,21 @@ public class RootConfig {
 
         config.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
 
-        config.setJdbcUrl("jdbc:log4jdbc:mysql://106.241.252.51/delinori");
-        config.setUsername("delinori");
-        config.setPassword("delinoripw");
+        config.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/springdb");
+        config.setUsername("springuser");
+        config.setPassword("springuser");
+//        config.setJdbcUrl("jdbc:log4jdbc:mysql://106.241.252.51/delinori");
+//        config.setUsername("delinori");
+//        config.setPassword("delinoripw");
         HikariDataSource dataSource = new HikariDataSource(config);
         return dataSource;
     }
 
     @Bean
     public TransactionManager transactionManager() {
+
         return new DataSourceTransactionManager(dataSource());
     }
+
 
 }

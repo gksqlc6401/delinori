@@ -1,5 +1,6 @@
 package com.noriteo.delinori.common.config;
 
+//import com.noriteo.delinori.board.config.BoardRootConfig;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
