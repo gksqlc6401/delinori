@@ -2,6 +2,7 @@ package com.noriteo.delinori.board.mapper;
 
 import com.noriteo.delinori.board.domain.Board;
 import com.noriteo.delinori.common.dto.PageRequestDTO;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,4 +20,5 @@ public interface BoardMapper {
 
     int update(Board board);
 
+    int updateReplyCnt(@Param("bno") Long bno, @Param("num") int num);
 }

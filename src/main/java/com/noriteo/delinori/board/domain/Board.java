@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Board {
 
+    private int replyCnt;
     private Long bno;
     private String title,writer,content;
     private LocalDateTime regDate,modDate;

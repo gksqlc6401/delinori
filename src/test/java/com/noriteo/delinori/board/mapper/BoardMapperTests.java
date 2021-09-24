@@ -27,7 +27,7 @@ public class BoardMapperTests {
 
     @Test
     public void testDummies() {
-        IntStream.rangeClosed(1,100).forEach(i ->{
+        IntStream.rangeClosed(1,15).forEach(i ->{
             Board board = Board.builder()
                     .title("title"+i)
                     .content("contnet"+i)

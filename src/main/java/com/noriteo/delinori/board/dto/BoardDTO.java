@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class BoardDTO {
 
+    private int replyCnt;
     private Long bno;
     private String title;
     private String writer;

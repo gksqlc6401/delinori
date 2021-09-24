@@ -16,25 +16,22 @@ public class PageRequestDTO {
     @Builder.Default
     private int size = 10;
 
-//    private String type; //검색 조건
-//    private String keyword; //검색어
+    private String type; //검색 조건
+    private String keyword; //검색어
 
     public int getSkip() {
 
         return (page - 1) * size;
     }
 
-//    public String getType() {
-//
-//        if(type == null || type.trim().length() == 0) {
-//            return null;
-//        }
-//        return type;
-//    }
-//
-//    public String[] getArr() {
-//        return type == null? new String[]{}: type.split("");
-//    }
+    public String getType() {
+        if(type == null || type.trim().length() == 0) {  //타입이 null 이면 공백문자 잘라낸다
+            return  null;
+        }
+        return  type;
+    }
+
+    public String[] getArr() { return type ==null? new String[]{}: type.split(""); }
     //빈 배열 주는 이유 : null들어가면 sql에서 에러나기 때문
 
 }
