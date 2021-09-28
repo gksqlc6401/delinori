@@ -47,8 +47,30 @@
 
     </select>
 
-    <select id="select" resultType="com.noriteo.delinori.board.domain.Board">
-        select * from board where bno=#{bno}
+    <resultMap id="boardMap" type="com.noriteo.delinori.board.domain.Board">
+        <id property="bno" column="bno"></id>
+        <result property="title" column="title"></result>
+        <result property="content" column="content"></result>
+        <result property="writer" column="writer"></result>
+        <result property="replyCnt" column="replyCnt"></result>
+        <result property="modDate" column="modDate"></result>
+        <result property="regDate" column="regDate"></result>
+        <collection property="attachList" resultMap="attachMap"></collection>
+    </resultMap>
+
+    <resultMap id="attachMap" type="com.noriteo.delinori.board.domain.BoardAttach">
+        <result property="uuid" column="uuid"></result>
+        <result property="bno" column="bno"></result>
+        <result property="fileName" column="fileName"></result>
+        <result property="path" column="path"></result>
+        <result property="image" column="image"></result>
+    </resultMap> <!--board랑 attach를 한번에 처리해줬음-->
+
+    <select id="select" resultMap="boardMap">
+        select *
+        from
+            board board left join attach_board ab on board.bno = ab.bno
+        where board.bno=#{bno}
     </select>
 
     <delete id="delete">
@@ -63,5 +85,12 @@
     <update id="updateReplyCnt">
         update board set replyCnt = replyCnt + #{num} where bno=#{bno}
     </update>
+
+
+
+    <insert id="insertAttach">
+        insert into attach_board (uuid,bno,path,filename,image)
+        values(#{uuid}, #{bno}, #{path}, #{fileName}, #{image})
+    </insert>
 
 </mapper>

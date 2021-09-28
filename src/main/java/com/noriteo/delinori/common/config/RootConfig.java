@@ -36,12 +36,10 @@ public class RootConfig {
 
         config.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
 
-//        config.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/springdb");
-//        config.setUsername("springuser");
-//        config.setPassword("springuser");
         config.setJdbcUrl("jdbc:log4jdbc:mysql://106.241.252.51:1524/delinori");
         config.setUsername("delinori");
         config.setPassword("delinoripw");
+        config.setMaximumPoolSize(3);
         HikariDataSource dataSource = new HikariDataSource(config);
         return dataSource;
     }

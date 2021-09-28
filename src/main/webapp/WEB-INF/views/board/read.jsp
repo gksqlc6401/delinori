@@ -70,6 +70,17 @@
             </div>
             </form>
 
+            <div>
+                <c:forEach items="${boardDTO.files}" var="attach">
+                    <div>
+                        <c:if test="${attach.image}">
+                            <img onclick="javascript:showOrigin('${attach.getFileLink()}')" src="/viewFile?file=${attach.getThumbnail()}">
+                            <%--원본경로랑 썸네일 경로랑 파라미터로 줌--%>
+                        </c:if>
+                    </div>
+                </c:forEach>
+            </div>
+
             <div class="card direct-chat direct-chat-primary">
                 <h5 class="card-title">Replies</h5>
 
@@ -149,19 +160,10 @@
 </div>
 <!-- /.modal -->
 
-<div class="modal fade" id="modal-image">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-body">
-                <img id="targetImage">
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
+<div id="modal-imge" class="modal">
+    <span class="close">&times X</span>
+    <img class="modal-content" id="targetImage">
+    <div id="caption"></div>
 </div>
 
 <%@ include file="../includes/footer.jsp" %> <!--푸터 붙여넣기( 앞으로 이거 긁어 쓰세요 ) -->
@@ -196,6 +198,20 @@ document.querySelector(".btnDel").addEventListener("click",(e) => {
 <script src="/resources/js/reply.js">//read.jsp랑 reply.js랑 연결하는코드,read에서 글을 읽어야 댓글을 달수 있기때문에 read랑 연결</script>
 
 <script>
+
+
+    const modalImage = $('#modal-imge')
+    // const modalImage = new bootstrap.Modal(document.querySelector('#modal-image'))//제이쿼리를 안쓰려고 링크 받아옴
+
+    function showOrigin(fileLink){
+        document.querySelector('#targetImage').src = `/viewFile?file=\${fileLink}`
+        modalImage.show()
+    }
+
+    function after(result) {
+        console.log("after.........")
+        console.log("result:" , result)
+    }
 // function showReply(rno, event){
 //     alert('rno:' + rno);
 //     const target = event.target.closest('.direct-chat-msg');
@@ -315,6 +331,7 @@ document.querySelector(".btnModReply").addEventListener("click",(e)=>{
     })
 
 },false)
+
 
 
 </script>

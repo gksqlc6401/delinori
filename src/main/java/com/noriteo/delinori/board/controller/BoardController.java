@@ -8,6 +8,7 @@ import com.noriteo.delinori.common.dto.PageRequestDTO;
 import com.noriteo.delinori.common.dto.PageResponseDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,6 +48,7 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/register")
     public void registerGet() {
 
@@ -77,6 +79,7 @@ public class BoardController {
 
     }
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping(value = "/read")
     public void read(Long bno, PageRequestDTO pageRequestDTO, Model model) {
         log.info("c      read        "+bno);

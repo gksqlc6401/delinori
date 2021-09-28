@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @Import(BoardServletConfig.class)
-@ComponentScan(basePackages = {"com.noriteo.delinori.common.exception","com.noriteo.delinori.common.controller"})
+@ComponentScan(basePackages = {"com.noriteo.delinori.common.exception","com.noriteo.delinori.board.controller"})
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ServletConfig implements WebMvcConfigurer {
 
