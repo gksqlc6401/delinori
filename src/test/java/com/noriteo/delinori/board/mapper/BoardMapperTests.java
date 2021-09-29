@@ -71,11 +71,11 @@ public class BoardMapperTests {
 //    }
 
     @Test
-    public void testDelete() {
-        long bno = 3L;
+    public void testUpdateDel() {
+        long bno = 79L;
 
-        log.info("delete..................");
-        log.info(boardMapper.delete(bno));
+        log.info("delete Del..................");
+        log.info(boardMapper.updateShow(bno));
     }
 
     @Test

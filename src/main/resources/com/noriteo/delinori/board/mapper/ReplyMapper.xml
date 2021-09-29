@@ -14,9 +14,9 @@
         select * from reply_board where bno = #{bno} order by rno asc
     </select>
 
-    <delete id="delete">
+    <update id="updateShow">
         delete from reply_board where rno=#{rno}
-    </delete>
+    </update>
 
     <update id="update">
         update reply_board set reply = #{reply},  modDate = now() where rno = #{rno}

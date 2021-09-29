@@ -50,7 +50,7 @@
                             <tbody>
                             <c:forEach items="${dtoList}" var="dto">
                                 <c:choose>
-                                    <c:when test="${dtoList.show == 'y'}">
+                                    <c:when test="${dto.show eq 'y'}">
                                 <tr>
                                     <td><c:out value="${dto.bno}"></c:out></td>
                                     <td><a href="javascript:moveRead(${dto.bno})"><c:out value="${dto.title}"></c:out></a></td>
@@ -60,7 +60,7 @@
                                     </c:when>
                                     <c:otherwise>
                                         <tr>
-                                            <td>
+                                            <td colspan="4">
                                                 삭제된 게시글 입니다.
                                             </td>
                                         </tr>

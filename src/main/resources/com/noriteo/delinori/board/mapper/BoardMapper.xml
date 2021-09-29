@@ -22,8 +22,8 @@
     </sql>
 
     <insert id="insert">
-        insert board (title,content,writer,show)
-        values (#{title},#{content},#{writer},'y')
+        insert board (title,content,writer)
+        values (#{title},#{content},#{writer})
         <selectKey order="AFTER" resultType="long" keyProperty="bno">
             select last_insert_id()
         </selectKey>
@@ -74,7 +74,7 @@
     </select>
 
     <update id="delete">
-       update board set show = 'n' where bno=#{bno}
+       update board set board.show = 'n' where bno=#{bno}
     </update>
 
     <update id="update">

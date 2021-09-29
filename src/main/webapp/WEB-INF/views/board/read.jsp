@@ -67,12 +67,12 @@
 
             <div class="card-footer">
 
-                <sec:authorize access="hasRole('ROLE_ADMIN')">
-                    <button type="submit" class="btn btn-danger btnDel">삭제</button>
-                </sec:authorize>
+<%--                <sec:authorize access="hasRole('ROLE_ADMIN')">--%>
+<%--                    <button type="submit" class="btn btn-danger btnDel">삭제</button>--%>
+<%--                </sec:authorize>--%>
 
                 <sec:authentication property="principal" var="memberDTO"/>
-                <c:if test="${boardDTO.writer eq memberDTO.mid}">
+                <c:if test="${boardDTO.writer eq memberDTO.mid or hasRole('ROLE_ADMIN')}">
 
                 <button type="submit" class="btn btn-danger btnDel">삭제</button>
                 </c:if>

@@ -17,7 +17,13 @@ public interface BoardMapper {
 
     Board select(Long bno);
 
-    int update(Long bno);
+
+
+
+
+
+
+    int updateShow(Long bno);
 
     int update(Board board);
 
