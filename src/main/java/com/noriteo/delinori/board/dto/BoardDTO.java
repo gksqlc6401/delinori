@@ -24,6 +24,7 @@ public class BoardDTO {
     private String content;
     private LocalDateTime regDate;
     private LocalDateTime modDate;
+    private String show;
 
     private List<UploadResponseDTO> files = new ArrayList<>();
 
@@ -36,6 +37,7 @@ public class BoardDTO {
                 .writer(writer)
                 .regDate(regDate)
                 .modDate(modDate)
+                .show(show)
                 .build();
 
         files.forEach(uploadResponseDTO -> {

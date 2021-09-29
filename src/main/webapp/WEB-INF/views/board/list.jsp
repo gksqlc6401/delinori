@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/header.jsp" %> <!--헤더 붙여넣기( 앞으로 이거 긁어 쓰세요 ) -->
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -48,12 +49,23 @@
                             </thead>
                             <tbody>
                             <c:forEach items="${dtoList}" var="dto">
+                                <c:choose>
+                                    <c:when test="${dtoList.show == 'y'}">
                                 <tr>
                                     <td><c:out value="${dto.bno}"></c:out></td>
                                     <td><a href="javascript:moveRead(${dto.bno})"><c:out value="${dto.title}"></c:out></a></td>
                                     <td><c:out value="${dto.writer}"></c:out></td>
                                     <td><c:out value="${dto.regDate}"></c:out></td>
                                 </tr>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <tr>
+                                            <td>
+                                                삭제된 게시글 입니다.
+                                            </td>
+                                        </tr>
+                                    </c:otherwise>
+                                </c:choose>
                             </c:forEach>
                             </tbody>
 <%--                        <canvas id="myAreaChart"></canvas>--%>

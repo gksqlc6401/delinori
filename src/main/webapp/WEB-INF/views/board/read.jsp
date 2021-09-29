@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/header.jsp" %> <!--헤더 붙여넣기( 앞으로 이거 긁어 쓰세요 ) -->
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -7,7 +8,6 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">자유게시판</h1>
-
     <div class="card-footer float-right">
         <button type="button" class="btn btn-primary btnList" >LIST</button>
     </div>
@@ -66,7 +66,18 @@
             </div>
 
             <div class="card-footer">
+
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <button type="submit" class="btn btn-danger btnDel">삭제</button>
+                </sec:authorize>
+
+                <sec:authentication property="principal" var="memberDTO"/>
+                <c:if test="${boardDTO.writer eq memberDTO.mid}">
+
                 <button type="submit" class="btn btn-danger btnDel">삭제</button>
+                </c:if>
+
+
             </div>
             </form>
 

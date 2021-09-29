@@ -18,7 +18,7 @@ public class Board {
 
     private int replyCnt;
     private Long bno;
-    private String title,writer,content;
+    private String title,writer,content,show;
     private LocalDateTime regDate,modDate;
 
     @Builder.Default
@@ -32,6 +32,7 @@ public class Board {
                 .writer(writer)
                 .regDate(regDate)
                 .modDate(modDate)
+                .show(show)
                 .build();
 
         List<UploadResponseDTO> uploadResponseDTOList = attachList.stream().map(attach -> {

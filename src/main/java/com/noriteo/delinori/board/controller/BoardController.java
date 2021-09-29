@@ -1,5 +1,6 @@
 package com.noriteo.delinori.board.controller;
 
+import com.noriteo.delinori.board.domain.Board;
 import com.noriteo.delinori.board.dto.BoardDTO;
 import com.noriteo.delinori.board.service.BoardService;
 import com.noriteo.delinori.board.service.TimeService;
@@ -25,6 +26,7 @@ public class BoardController {
     private final TimeService timeService;
 
     private final BoardService boardService;
+
 
     @GetMapping("/time")
     public void getTime(int num, Model model) {
@@ -86,8 +88,12 @@ public class BoardController {
         model.addAttribute("boardDTO", boardService.read(bno));
     }
 
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN')"or ("principal.username == #board.writer"))
+    @PreAuthorize("principal.username == #boardDTO.writer or hasRole('ROLE_ADMIN')")
     @PostMapping
-    public String remove(Long bno, RedirectAttributes redirectAttributes) {
+    public String remove(BoardDTO boardDTO, Long bno, RedirectAttributes redirectAttributes) {
+
+
 
         log.info("c             remove:" +bno);
 

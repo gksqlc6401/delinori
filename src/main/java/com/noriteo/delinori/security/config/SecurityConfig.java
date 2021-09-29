@@ -47,11 +47,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()
-                .antMatchers("/board/doAll").permitAll()
-                .antMatchers("/board/doNori").access("hasRole('ROLE_NORI')")
-                .antMatchers("/board/doDeli").access("hasRole('ROLE_DELI')")
-                .antMatchers("/board/doAdmin").access("hasRole('ROLE_ADMIN')");
+//        http.authorizeRequests()
+//                .antMatchers("/board/doAll").permitAll()
+//                .antMatchers("/board/doNori").access("hasRole('ROLE_NORI')")
+//                .antMatchers("/board/doDeli").access("hasRole('ROLE_DELI')")
+//                .antMatchers("/board/doAdmin").access("hasRole('ROLE_ADMIN')");
         http.formLogin().loginPage("/customLogin")
                 .loginProcessingUrl("/login");
 
