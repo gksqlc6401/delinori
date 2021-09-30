@@ -71,12 +71,18 @@
 <%--                    <button type="submit" class="btn btn-danger btnDel">삭제</button>--%>
 <%--                </sec:authorize>--%>
 
+                <sec:authentication property="principal.authorities" var ="authList"/>
+
+<%--    <h4>${authList.toString().indexOf("ADMIN")}</h4>--%>
+
                 <sec:authentication property="principal" var="memberDTO"/>
-                <c:if test="${boardDTO.writer eq memberDTO.mid or hasRole('ROLE_ADMIN')}">
+
+
+                <c:if test="${(boardDTO.writer eq memberDTO.mid ) or (authList.toString().indexOf(\"ADMIN\") >0)  }">
 
                 <button type="submit" class="btn btn-danger btnDel">삭제</button>
-                </c:if>
 
+                </c:if>
 
             </div>
             </form>
@@ -180,6 +186,8 @@
 <%@ include file="../includes/footer.jsp" %> <!--푸터 붙여넣기( 앞으로 이거 긁어 쓰세요 ) -->
 <script>
 
+
+
 const form = document.querySelector("#form1")
 
 const actionForm = document.querySelector("#actionForm")
@@ -197,6 +205,8 @@ document.querySelector(".btnDel").addEventListener("click",(e) => {
 
     e.preventDefault()
     e.stopPropagation()
+
+    actionForm.submit()
 
     form.setAttribute("action", "/board/remove")
     form.setAttribute("method", "post")

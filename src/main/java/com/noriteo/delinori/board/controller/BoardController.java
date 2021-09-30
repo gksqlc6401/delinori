@@ -1,9 +1,7 @@
 package com.noriteo.delinori.board.controller;
 
-import com.noriteo.delinori.board.domain.Board;
 import com.noriteo.delinori.board.dto.BoardDTO;
 import com.noriteo.delinori.board.service.BoardService;
-import com.noriteo.delinori.board.service.TimeService;
 import com.noriteo.delinori.common.dto.PageMaker;
 import com.noriteo.delinori.common.dto.PageRequestDTO;
 import com.noriteo.delinori.common.dto.PageResponseDTO;
@@ -23,18 +21,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequiredArgsConstructor
 public class BoardController {
 
-    private final TimeService timeService;
+
 
     private final BoardService boardService;
 
-
-    @GetMapping("/time")
-    public void getTime(int num, Model model) {
-        log.info("================controller getTime===================");
-        model.addAttribute("time", timeService.getNow());
-
-        log.info(num % 0);
-    }
 
     @PostMapping("/register")
     public String registerPost(BoardDTO boardDTO, RedirectAttributes redirectAttributes) {

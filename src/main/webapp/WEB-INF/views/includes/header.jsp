@@ -228,8 +228,7 @@
                   <div class="status-indicator bg-success"></div>
                 </div>
                 <div class="font-weight-bold">
-                  <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                    problem I've been having.</div>
+                  <div class="text-truncate">마스크로 답답하지만, 마음만은 상쾌한 한 주 보내시길 바랍니다.</div>
                   <div class="small text-gray-500">Emily Fowler · 58m</div>
                 </div>
               </a>
@@ -240,8 +239,7 @@
                   <div class="status-indicator"></div>
                 </div>
                 <div>
-                  <div class="text-truncate">I have the photos that you ordered last month, how
-                    would you like them sent to you?</div>
+                  <div class="text-truncate">딜리노리 관리자님! 오늘기준 회원이 1,0000명이 되었습니다.</div>
                   <div class="small text-gray-500">Jae Chun · 1d</div>
                 </div>
               </a>
@@ -252,8 +250,7 @@
                   <div class="status-indicator bg-warning"></div>
                 </div>
                 <div>
-                  <div class="text-truncate">Last month's report looks great, I am very happy with
-                    the progress so far, keep up the good work!</div>
+                  <div class="text-truncate">딜리노리 관리자님! 금일 조회된 거래건수는 729건 입니다!</div>
                   <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                 </div>
               </a>
@@ -264,8 +261,7 @@
                   <div class="status-indicator bg-success"></div>
                 </div>
                 <div>
-                  <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                    told me that people say this to all dogs, even if they aren't good…</div>
+                  <div class="text-truncate">더운 여름도 가고 이제 날씨가 점점 시원해지고 있네요, 가을 같이 좋은 하루 보내시길 바랄게요.</div>
                   <div class="small text-gray-500">Chisken the Dog · 2w</div>
                 </div>
               </a>

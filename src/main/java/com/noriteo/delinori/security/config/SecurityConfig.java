@@ -3,7 +3,6 @@ package com.noriteo.delinori.security.config;
 import com.noriteo.delinori.security.hendler.CustomAccessDeniedHandler;
 import com.noriteo.delinori.security.hendler.CustomAuthenticationEntryPoint;
 import com.noriteo.delinori.security.hendler.CustomLoginSuccessHandler;
-import com.noriteo.delinori.security.mapper.MemberMapper;
 import com.noriteo.delinori.security.service.CustomUserDetailsService;
 import lombok.extern.log4j.Log4j2;
 import org.mybatis.spring.annotation.MapperScan;

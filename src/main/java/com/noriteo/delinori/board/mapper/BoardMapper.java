@@ -4,6 +4,7 @@ import com.noriteo.delinori.board.domain.Board;
 import com.noriteo.delinori.board.domain.BoardAttach;
 import com.noriteo.delinori.common.dto.PageRequestDTO;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -17,11 +18,8 @@ public interface BoardMapper {
 
     Board select(Long bno);
 
-
-
-
-
-
+    @Select("select now()")
+    String getTime();
 
     int updateShow(Long bno);
 

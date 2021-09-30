@@ -76,6 +76,9 @@ public class BoardMapperTests {
 
         log.info("delete Del..................");
         log.info(boardMapper.updateShow(bno));
+
+        log.info(boardMapper.getTime());
+
     }
 
     @Test

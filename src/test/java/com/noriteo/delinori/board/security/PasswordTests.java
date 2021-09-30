@@ -1,7 +1,6 @@
 package com.noriteo.delinori.board.security;
 
 
-import com.noriteo.delinori.board.config.BoardRootConfig;
 import com.noriteo.delinori.common.config.RootConfig;
 import com.noriteo.delinori.security.config.SecurityConfig;
 import com.noriteo.delinori.security.domain.Member;

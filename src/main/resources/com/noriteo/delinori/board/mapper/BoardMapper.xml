@@ -73,7 +73,7 @@
         where board.bno=#{bno}
     </select>
 
-    <update id="delete">
+    <update id="updateShow">
        update board set board.show = 'n' where bno=#{bno}
     </update>
 
